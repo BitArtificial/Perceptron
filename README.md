@@ -7,6 +7,7 @@ This is a homework for me
 感知器（英语：Perceptron）是Frank Rosenblatt在1957年就职于康奈尔航空实验室（Cornell Aeronautical Laboratory）时所发明的一种人工神经网络。它可以被视为一种最简单形式的前馈神经网络，是一种二元线性分类器。
 
 第一章
+
 1.1 概念
 感知机主要是应用于二类问题；对于输入的向量x，w为输入向量x连接到感知机的权重，则有如下的公式对其计算：
 f(x)={y=+1 if w*x+b≥0   ,y-1 else)
@@ -26,13 +27,16 @@ D={(x_1,y_2 ),…,(x_n,y_n)}
 如图，对于n组向量x_1,x_2,x_3…x_n及其对应的两类标签y_1,y_2,y_3…y_n  (y_i=±1)，。若该数据为线性可分，则可以找到一个超平面将其分开。
 
 第二章 感知机算法
+
 对于感知机的参数，将使用以下算法来进行计算
  2.1 感知机损失函数的定义
 若(x,y)是正样本则 w*x+b>0，若(x,y)为负样本，则 w*x+b<0 ，而前文提到 (x,y)为正样本，则 y=1，(x,y) 为负样本，则 y=-1 ，因此我们定义损失函数为：Loss=-y_i*(w_i*x_i+b)  当误分类时，Loss>0 ，对错分类的点，损失函数求导有：∂Loss/∂w(x_i,y_i)=-y_i*x_i ，∂Loss/∂b (x_i,y_i )=-y_i
 而在更新梯度时，我们只需要找出使得 Loss 最大的那一组样本 (x_i,y_i) 用它来更新梯度即可。
 
 
-第三章实例：剖腹产的选择
+第三章：本感知机算法在剖腹产数据集的应用
+
+
 3.1.1 剖腹产数据集的介绍
 Caesarian Section Classification Dataset Data Set contains information about caesarian section results of 80 pregnant women with the most important characteristics of delivery problems in the medical field.
 We choose age, delivery number, delivery time, blood pressure and heart status. 
@@ -51,3 +55,7 @@ We classify delivery time to Premature, Timely and Latecomer. As like the delive
 
 3.1.2 数据集预处理
 首先我们需要将源数据集中的数据部分提取出来，共80个数据如图1-2所示，并在实际运用的时候最后一栏：是否选择剖腹产部分原来的0和1变成-1和1，也就是我们的y分类标签值。
+
+3.2.1数据集的计算思路
+将这80个数据中选取60个作为训练集，20个作为测试集，并将训练集中得到的超平面方程代入测试集中并对比，计算得到的准确率。
+
