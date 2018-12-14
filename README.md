@@ -47,7 +47,7 @@ We classify delivery time to Premature, Timely and Latecomer. As like the delive
 @attribute Caesarian { 0,1 } -> {0 = No, 1 = Yes } 
 数据集入下图：
 
-[!image](https://github.com/BitArtificial/Perceptron/blob/master/cesarean.png)
+![image](https://github.com/BitArtificial/Perceptron/blob/master/cesarean.png)
 
 3.1.2 数据集预处理
 首先我们需要将源数据集中的数据部分提取出来，共80个数据如图1-2所示，并在实际运用的时候最后一栏：是否选择剖腹产部分原来的0和1变成-1和1，也就是我们的y分类标签值。
