@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 import random
 class Perceptron:
-    def __init__(self,d,n):
+    def __init__(self,d,n,X=None,Y=None):
         self.d=d
         self.n=n
         self.lr=0.001
         self.pre_hp=''
+        self.x=X
+        self.y=Y
         
     def generate_data(self):
         random.seed(5)
@@ -21,9 +23,10 @@ class Perceptron:
         print('the hyperplane is : {}'.format(self.pre_hp))
         #define and fix the hyperplane
         random.seed(5)
-        self.x=[[random.uniform(-10,10) for i in range(self.d)] for j in range(self.n)]
-        self.y=[-1 if sum([x_*w for x_,w in zip(x_list,w)],b) <0 else 1 for x_list in self.x]
-
+        x=[[random.uniform(-10,10) for i in range(self.d)] for j in range(self.n)]
+        y=[-1 if sum([x_*w for x_,w in zip(x_list,w)],b) <0 else 1 for x_list in x]
+        
+        return x,y
         #to make y distributed in -1 and 1 stand by the classification
         #and to ensure that y can be divided by the hyperplane
         #generate and fix the random x,y
@@ -67,6 +70,9 @@ class Perceptron:
         w=[random.randint(1,10) for i in range(self.d)]
         random.seed(8)
         b=random.randint(1,10)
+        if not self.x:
+            self.x,self.y=self.generate()
+        
         loss,max_i=self.loss_fun(w,b)
         while loss>0 or max_i!=None:
             #the true classify is the loss ==0
@@ -90,6 +96,5 @@ class Perceptron:
         
 if __name__=='__main__':
     per=Perceptron(5,40)
-    per.generate_data()
     per.gradiant_method()
         
