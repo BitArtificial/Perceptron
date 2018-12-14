@@ -21,6 +21,8 @@ D={(x_1,y_2 ),…,(x_n,y_n)}
 （xi为输入，yi为标签），如果存在一个超平面τ，能够将D中正负样本（对于某个样本（xi，yi），若 yi =1 则称其为正样本，若 yi =-1 则称其为负样本，且标签 yi 只能取正负 1 这两个值）分开，那么就称 D 是线性可分的。否则，就称是线性不可分的。对于感知机模型来说，以上的这些信息就足够了。事实上，感知机模型只有 w 和 b 这两个参数，我们要做的就是根据样本的信息来逐步更新 w 和 b、从而使得对应的超平面 τ 能够分开 D。
 
 ![image](https://github.com/BitArtificial/Perceptron/blob/master/%E7%A4%BA%E4%BE%8B%E5%9B%BE.svg)
+
+
 如图，对于n组向量x_1,x_2,x_3…x_n及其对应的两类标签y_1,y_2,y_3…y_n  (y_i=±1)，。若该数据为线性可分，则可以找到一个超平面将其分开。
 
 第二章 感知机算法
@@ -43,5 +45,9 @@ We classify delivery time to Premature, Timely and Latecomer. As like the delive
 @attribute 'Heart Problem' { 1,0 } -> {0 = apt, 1 = inept } 
 
 @attribute Caesarian { 0,1 } -> {0 = No, 1 = Yes } 
+数据集入下图：
+
+[!image](https://github.com/BitArtificial/Perceptron/blob/master/cesarean.png)
+
 3.1.2 数据集预处理
 首先我们需要将源数据集中的数据部分提取出来，共80个数据如图1-2所示，并在实际运用的时候最后一栏：是否选择剖腹产部分原来的0和1变成-1和1，也就是我们的y分类标签值。
